@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Lista de clientes</title>
+</head>
+
+<body>
+
+	<h1 th:text="${titulo}"></h1>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Usuario</th>
+				<th>Clave</th>
+			</tr>
+
+
+		</thead>
+		<tbody>
+			<tr th:each="usuario: ${usuarios}">
+				<td th:text="${usuario.usuario}"></td>
+				<td th:text="${usuario.clave}"></td>
+				<td><a th:text="'Eliminar'" th:href="@{/eliminar/}+${usuario.id}"
+						onclick="return confirm('Deseas Eliminar');"></a></td>
+
+			</tr>
+
+
+		</tbody>
+
+
+	</table>
+</body>
+
+</html>

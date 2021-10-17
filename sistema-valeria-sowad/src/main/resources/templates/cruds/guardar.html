@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+
+<body>
+
+	<form th:action="@{/guardar}" th:object="${usuario}" method="post">
+
+		<input type="text" th:field="*{usuario}" />
+		<input type="text" />
+		<input type="submit" value="Crear usuario" />
+		<input type="hidden" />
+
+
+	</form>
+</body>
+
+</html>

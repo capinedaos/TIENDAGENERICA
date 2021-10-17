@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title th:text="${titulo}"></title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" th:href="@{/bootstrapHome/bower_components/bootstrap/dist/css/bootstrap.min.css}">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" th:href="@{/bootstrapHome/bower_components/font-awesome/css/font-awesome.min.css}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" th:href="@{/bootstrapHome/bower_components/Ionicons/css/ionicons.min.css}">
+  <!-- Theme style -->
+  <link rel="stylesheet" th:href="@{/bootstrapHome/dist/css/AdminLTE.min.css}">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" th:href="@{/bootstrapHome/dist/css/skins/_all-skins.min.css}">
+  <!-- Morris chart -->
+  <link rel="stylesheet" th:href="@{/bootstrapHome/bower_components/morris.js/morris.css}">
+  <!-- jvectormap -->
+  <link rel="stylesheet" th:href="@{/bootstrapHome/bower_components/jvectormap/jquery-jvectormap.css}">
+  <!-- Date Picker -->
+  <link rel="stylesheet"
+    th:href="@{/bootstrapHome/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css}">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" th:href="@{/bootstrapHome/bower_components/bootstrap-daterangepicker/daterangepicker.css}">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" th:href="@{/bootstrapHome/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css}">
+
+
+
+  <!-- Google Font -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+
+    <header class="main-header">
+      <!-- Logo -->
+      <a th:href="@{menu}" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b></b></span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>Tienda</b>Mintic.</span>
+      </a>
+      <!-- Header Navbar: style can be found in header.less -->
+      <nav class="navbar navbar-static-top">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <!-- User Account: style can be found in dropdown.less -->
+            <li class="dropdown user user-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+                <span class="hidden-xs">
+                  <h1 th:text="${usuario}"></h1>
+
+                </span>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- User image -->
+                <li class="user-header">
+                  <img src="#" class="img-circle">
+
+                  <p>
+                  <h1 th:text="${usuario}"></h1> - Administrador
+                  <small></small>
+                  </p>
+                </li>
+                <!-- Menu Body -->
+
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                  <div class="pull-left">
+                    <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                  </div>
+                  <div class="pull-right">
+                    <a href="#" class="btn btn-default btn-flat">Cerrar sesión</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+
+        <ul class="sidebar-menu" data-widget="tree">
+          <li class="header">
+            <center>MODULOS DEL SISTEMA</center>
+          </li>
+
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-laptop"></i>
+              <span>Ventas</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a th:href="@{venta}"><i class="fa fa-circle-o"></i>Nueva venta</a></li>
+
+            </ul>
+          </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-edit"></i> <span>Pago</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a th:href="@{noPagado}"><i class="fa fa-circle-o"></i> Pagos no realizados</a></li>
+              <li><a th:href="@{pagado}"><i class="fa fa-circle-o"></i> Pagos realizados</a></li>
+            </ul>
+          </li>
+
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-th"></i> <span>Compras</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a th:href="@{compra}"><i class="fa fa-circle-o"></i> Nueva compra</a></li>
+              <li><a th:href="@{listarCompras}"><i class="fa fa-circle-o"></i> Listar compras</a></li>
+            </ul>
+          </li>
+
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-th"></i> <span>Usuarios</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a th:href="@{listarusuario}"><i class="fa fa-circle-o"></i> Gestion de Usuarios</a></li>
+            </ul>
+          </li>
+
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-th"></i> <span>Clientes</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a th:href="@{listarpersona}"><i class="fa fa-circle-o"></i> Gestion de Clientes</a></li>
+            </ul>
+          </li>
+
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-th"></i> <span>Proveedores</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a th:href="@{listarproveedor}"><i class="fa fa-circle-o"></i> Gestion de Proveedores</a></li>
+            </ul>
+          </li>
+
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-th"></i> <span>Productos</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a th:href="@{listarplato}"><i class="fa fa-circle-o"></i> Gestion de Productos</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </section>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content">
+        <h3>
+          Módulo de pagos
+          <small>Panel de control</small>
+        </h3>
+
+        <!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <div class="col-md-3">
+
+              <div class="box box-solid">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Pagos</h3>
+
+                  <div class="box-tools">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="box-body no-padding">
+                  <ul class="nav nav-pills nav-stacked">
+                    <li><a th:href="@{noPagado}"><i class="fa fa-inbox"></i> Ventas no pagadas
+                        <span class="label label-primary pull-right"></span></a></li>
+                    <li class="active"><a th:href="@{pagado}"><i class="fa fa-envelope-o"></i> Venta pagadas</a></li>
+
+                  </ul>
+                </div>
+                <!-- /.box-body -->
+              </div>
+              <!-- /. box -->
+
+              <!-- /.box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9">
+              <div class="box box-primary">
+                <div class="box-header with-border">
+
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <div class="box">
+                        <div class="box-header">
+                          <h3 class="box-title">Ventas realizadas</h3>
+
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body table-responsive no-padding">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th>
+                                  <center>N°</center>
+                                </th>
+                                <th>
+                                  <center>Cliente</center>
+                                </th>
+                                <th>
+                                  <center>Estado</center>
+                                </th>
+                                <th>
+                                  <center>Fecha</center>
+                                </th>
+                                <th>
+                                  <center>Opción</center>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr th:each="venta: ${ventas}" align="center" th:if="${venta.estado} == 'pagado'">
+                                <td th:text="${venta.id}"></td>
+                                <td class="mailbox-name"
+                                  th:text="${venta.cliente.persona.nombres}+' '+${venta.cliente.persona.apellidos}"><a
+                                    href="#"></a></td>
+                                <td style="color:green" th:text="${venta.estado}"></td>
+                                <td class="mailbox-date" th:text="${venta.fecha}"></td>
+                                <td class="mailbox-star"><a th:href="@{/detalleVenta/}+${venta.id}">Detalle<i
+                                      class=""></i></a></td>
+                                <td class="mailbox-subject"></td>
+                                <td class="mailbox-attachment"></td>
+                              </tr>
+                            </tbody>
+
+                          </table>
+                        </div>
+                        <!-- /.box-body -->
+                      </div>
+                      <!-- /.box -->
+                    </div>
+                  </div>
+
+                  <!-- /.mail-box-messages -->
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer no-padding">
+                  <div class="mailbox-controls">
+
+                    <div class="btn-group">
+
+                    </div>
+                    <!-- /.btn-group -->
+                    <div class="pull-right">
+
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i></button>
+                        <button type="button" class="btn btn-default btn-sm"><i
+                            class="fa fa-chevron-right"></i></button>
+                      </div>
+                      <!-- /.btn-group -->
+                    </div>
+                    <!-- /.pull-right -->
+                  </div>
+                </div>
+              </div>
+              <!-- /. box -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </section>
+        <!-- /.content -->
+      </section>
+    </div>
+
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+      <div class="pull-right hidden-xs">
+        <b>Version</b> 0.0.2
+      </div>
+      <strong>Copyright &copy; 2021 <a href="#">Tienda Generica, Inc. | Ciclo 3 | Autor: Grupo 5 |</a>.</strong> Todos
+      los derechos reservados
+    </footer>
+
+
+  </div>
+  <!-- ./listar clientes, es una búsqueda -->
+
+
+
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- jQuery 3 -->
+  <script th:src="@{/bootstrapHome/bower_components/jquery/dist/jquery.min.js}"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script th:src="@{/bootstrapHome/bower_components/jquery-ui/jquery-ui.min.js}"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button);
+  </script>
+  <!-- Bootstrap 3.3.7 -->
+  <script th:src="@{/bootstrapHome/bower_components/bootstrap/dist/js/bootstrap.min.js}"></script>
+
+  <script th:src="@{/bootstrap/assets/js/bootbox.js}"></script>
+  <!-- Morris.js charts -->
+  <script th:src="@{/bootstrapHome/bower_components/raphael/raphael.min.js}"></script>
+  <script th:src="@{/bootstrapHome/bower_components/morris.js/morris.min.js}"></script>
+  <!-- Sparkline -->
+  <script th:src="@{/bootstrapHome/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js}"></script>
+  <!-- jvectormap -->
+  <script th:src="@{/bootstrapHome/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js}"></script>
+  <script th:src="@{/bootstrapHome/plugins/jvectormap/jquery-jvectormap-world-mill-en.js}"></script>
+  <!-- jQuery Knob Chart -->
+  <script th:src="@{/bootstrapHome/bower_components/jquery-knob/dist/jquery.knob.min.js}"></script>
+  <!-- daterangepicker -->
+  <script th:src="@{/bootstrapHome/bower_components/moment/min/moment.min.js}"></script>
+  <script th:src="@{/bootstrapHome/bower_components/bootstrap-daterangepicker/daterangepicker.js}"></script>
+  <!-- datepicker -->
+  <script th:src="@{/bootstrapHome/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js}"></script>
+  <!-- Bootstrap WYSIHTML5 -->
+  <script th:src="@{/bootstrapHome/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js}"></script>
+  <!-- Slimscroll -->
+  <script th:src="@{/bootstrapHome/bower_components/jquery-slimscroll/jquery.slimscroll.min.js}"></script>
+  <!-- FastClick -->
+  <script th:src="@{/bootstrapHome/bower_components/fastclick/lib/fastclick.js}"></script>
+  <!-- AdminLTE App -->
+  <script th:src="@{/bootstrapHome/dist/js/adminlte.min.js}"></script>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script th:src="@{/bootstrapHome/dist/js/pages/dashboard.js}"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script th:src="@{/bootstrapHome/dist/js/demo.js}"></script>
+</body>
+
+</html>

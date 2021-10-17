@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    </link>
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" th:href="@{/bootstrap/assets/css/bootstrap.min.css}">
+    </link>
+    <link rel="stylesheet" th:href="@{/bootstrap/assets/font-awesome/4.5.0/css/font-awesome.min.css}">
+    </link>
+
+    <!-- text fonts -->
+    <link rel="stylesheet" th:href="@{/bootstrap/assets/css/fonts.googleapis.com.css}">
+    </link>
+    <link rel="stylesheet" th:href="@{/bootstrap/assets/css/ace.min.css}">
+    </link>
+    <link rel="stylesheet" th:href="@{/bootstrap/assets/css/fonts.googleapis.com.css}">
+    </link>
+
+    <!-- ace styles -->
+    <link rel="stylesheet" th:href="@{/bootstrap/assets/css/ace-rtl.min.css}">
+    </link>
+
+</head>
+
+<body>
+    <br><br><br><br>
+    <div class="main-container">
+        <div class="main-content">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <div class="login-container">
+                        <div class="center">
+                            <h1>
+                                <i class="ace-icon fa fa-leaf blue"></i>
+                                <span class="blue" id="id-text2">Tienda Mintic</span>
+                            </h1>
+                        </div>
+
+                        <div class="space-6"></div>
+
+                        <div class="position-relative">
+                            <div id="login-box" class="login-box visible widget-box no-border">
+                                <div class="widget-body">
+                                    <div class="widget-main">
+                                        <h4 class="header blue lighter bigger">
+                                            <i class="ace-icon fa fa-coffee blue"></i>
+                                            Inicio de Sesión
+                                        </h4>
+
+                                        <div class="space-6"></div>
+
+                                        <form th:action="@{/login}" th:object="${usuario}" method="post">
+                                            <fieldset>
+                                                <label class="block clearfix">
+                                                    <span class="block input-icon input-icon-right">
+                                                        <input type="text" class="form-control" placeholder="Usuario"
+                                                            th:field="*{usuario}" name="usuario" id="usuario"
+                                                            required />
+                                                        <i class="ace-icon fa fa-user blue"></i>
+                                                    </span>
+                                                </label>
+
+                                                <label class="block clearfix">
+                                                    <span class="block input-icon input-icon-right">
+                                                        <input type="password" class="form-control"
+                                                            placeholder="Contraseña" th:field="*{clave}" name="clave"
+                                                            id="clave" required />
+                                                        <i class="ace-icon fa fa-lock blue"></i>
+                                                    </span>
+                                                </label>
+
+                                                <div class="space"></div>
+
+                                                <div class="clearfix">
+
+                                                    <button type="submit" th:field="*{usuario}"
+                                                        class="width-35 pull-right btn btn-sm btn-primary">
+                                                        <i class="ace-icon fa fa-key"></i>
+                                                        <span class="bigger-110">Ingresar</span>
+                                                    </button>
+                                                    <input type="hidden" th:field="*{id}" />
+                                                    <p style="color:red" th:text="${failed}"></p>
+                                                </div>
+                                                <small class="alert alert-danger"
+                                                    th:if="${#fields.hasErrors('usuario')}"
+                                                    th:errors="*{usuario}"></small>
+
+                                                <div class="space-4"></div>
+                                            </fieldset>
+                                        </form>
+
+                                    </div><!-- /.widget-main -->
+
+                                </div><!-- /.widget-body -->
+                            </div><!-- /.login-box -->
+                        </div><!-- /.position-relative -->
+                    </div>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.main-content -->
+    </div>
+
+
+
+    <script type="text/javascript" th:src="@{/js/functions.js}">
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+INDEX VERSION 1.4+F:\JAIR\UPN_JAIR\SOWAD\2018-2\T2\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes

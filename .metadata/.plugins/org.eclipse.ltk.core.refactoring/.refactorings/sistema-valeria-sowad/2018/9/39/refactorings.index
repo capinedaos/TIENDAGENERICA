@@ -1,0 +1,17 @@
+1537856184079	Rename package 'com.example.demo'
+1537861914669	Rename type 'Cliente'
+1537874187158	Rename resource 'index.html'
+1537875130642	Delete element
+1537985014983	Move 'bootstrap' to 'static'
+1537998626625	Delete element
+1537998675765	Delete element
+1537998682100	Delete element
+1537998718610	Delete element
+1538024956381	Move 3 resources to 'usuario'
+1538038795398	Move 'header.html' to 'static'
+1538038930401	Move 'header.html' to 'css'
+1538039296965	Delete element
+1538091143133	Rename type 'IProductoRepository'
+1538163150100	Rename resource 'listaClientes.js'
+1538235721393	Rename type 'DetalleVenta'
+1538239763606	Rename field 'detalleventa'
